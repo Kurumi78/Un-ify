@@ -1,10 +1,15 @@
 package com.gmail.kurumitk78.unify.events;
 
+import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.World;
 import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.Damageable;
+import org.bukkit.inventory.meta.ItemMeta;
 
 
 import java.util.ArrayList;
@@ -24,11 +29,26 @@ public class OnBlockInteract implements Listener {
     @EventHandler
     public void OnBlockRightClick(PlayerInteractEvent event){
 
-        if(event.getMaterial().equals(Material.GRASS_PATH) &&  shovelArray.contains(event.getMaterial())){ //Unpathing
+        if(event.getMaterial().equals(Material.GRASS_PATH) &&  shovelArray.contains(event.getPlayer().getEquipment().getItemInMainHand().getType())){ //Unpathing
+            Location pathLoc = event.getClickedBlock().getLocation();
+            World world = event.getClickedBlock().getWorld();
+            world.getBlockAt(pathLoc).setType(Material.GRASS);
+            ItemStack shovel = event.getPlayer().getEquipment().getItemInMainHand();
+            Damageable shovelMeta = (Damageable) shovel.getItemMeta();
+            shovelMeta.setDamage(shovelMeta.getDamage()-1);
+            shovel.setItemMeta((ItemMeta)shovelMeta);
+
 
         }
 
-        else if(event.getMaterial().equals(Material.FARMLAND) &&  hoeArray.contains(event.getMaterial())){
+        else if(event.getMaterial().equals(Material.FARMLAND) &&  hoeArray.contains(event.getPlayer().getEquipment().getItemInMainHand().getType())){
+            Location tilledLoc = event.getClickedBlock().getLocation();
+            World world = event.getClickedBlock().getWorld();
+            world.getBlockAt(tilledLoc).setType(Material.DIRT);
+            ItemStack hoe = event.getPlayer().getEquipment().getItemInMainHand();
+            Damageable hoeMeta = (Damageable) hoe.getItemMeta();
+            hoeMeta.setDamage(hoeMeta.getDamage()-1);
+            hoe.setItemMeta((ItemMeta)hoeMeta);
 
         }
 
