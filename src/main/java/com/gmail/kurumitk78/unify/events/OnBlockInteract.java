@@ -7,6 +7,7 @@ import org.bukkit.World;
 import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.Damageable;
@@ -28,9 +29,9 @@ public class OnBlockInteract implements Listener {
     }
 
     @EventHandler
-    public void OnBlockRightClick(PlayerInteractEvent event){
+    public void OnBlockRightClick(PlayerInteractEvent   event){
         //event.getPlayer().sendMessage(ChatColor.GRAY + "[Un-Ify] " + ChatColor.DARK_GRAY + event.getMaterial() + " " + shovelArray.contains(event.getPlayer().getEquipment().getItemInMainHand().getType()));
-        if(event.getClickedBlock().getType().equals(Material.GRASS_PATH) &&  shovelArray.contains(event.getPlayer().getEquipment().getItemInMainHand().getType())){ //Unpathing
+        if(event.getAction() == Action.RIGHT_CLICK_BLOCK && event.getClickedBlock().getType().equals(Material.GRASS_PATH) &&  shovelArray.contains(event.getPlayer().getEquipment().getItemInMainHand().getType())){ //Unpathing
             Location pathLoc = event.getClickedBlock().getLocation();
             World world = event.getClickedBlock().getWorld();
             world.getBlockAt(pathLoc).setType(Material.GRASS_BLOCK);
@@ -42,7 +43,7 @@ public class OnBlockInteract implements Listener {
 
         }
 
-        else if(event.getClickedBlock().getType().equals(Material.FARMLAND) &&  hoeArray.contains(event.getPlayer().getEquipment().getItemInMainHand().getType())){
+        else if(event.getAction() == Action.RIGHT_CLICK_BLOCK &&event.getClickedBlock().getType().equals(Material.FARMLAND) &&  hoeArray.contains(event.getPlayer().getEquipment().getItemInMainHand().getType())){
             Location tilledLoc = event.getClickedBlock().getLocation();
             World world = event.getClickedBlock().getWorld();
             world.getBlockAt(tilledLoc).setType(Material.DIRT);
