@@ -6,7 +6,7 @@
 
     <groupId>com.gmail.kurumitk78</groupId>
     <artifactId>Unify</artifactId>
-    <version>1.0-DEV</version>
+    <version>1.0-ALPHA</version>
     <packaging>jar</packaging>
 
     <name>Unify</name>
@@ -40,6 +40,13 @@
                             <goal>shade</goal>
                         </goals>
                         <configuration>
+                            <relocations>
+                                <relocation>
+                                    <pattern>org.bstats</pattern>
+                                    <!-- Replace this with your package! -->
+                                    <shadedPattern>com.gmail.kurumitk78.unify</shadedPattern>
+                                </relocation>
+                            </relocations>
                             <createDependencyReducedPom>false</createDependencyReducedPom>
                         </configuration>
                     </execution>
@@ -67,6 +74,12 @@
             <artifactId>spigot-api</artifactId>
             <version>1.16.5-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.bstats</groupId>
+            <artifactId>bstats-bukkit</artifactId>
+            <version>2.2.1</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 </project>
