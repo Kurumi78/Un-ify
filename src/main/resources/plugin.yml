@@ -1,4 +1,4 @@
-name: Unify
+name: Un-ify
 version: ${project.version}
 main: com.gmail.kurumitk78.unify.Unify
 api-version: 1.15

@@ -6,10 +6,10 @@
 
     <groupId>com.gmail.kurumitk78</groupId>
     <artifactId>Unify</artifactId>
-    <version>1.0-ALPHA</version>
+    <version>1.0-BETA</version>
     <packaging>jar</packaging>
 
-    <name>Unify</name>
+    <name>Un-ify</name>
 
     <description>Un-do block specific actions</description>
     <properties>
