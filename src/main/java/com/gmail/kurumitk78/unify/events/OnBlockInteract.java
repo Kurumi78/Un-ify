@@ -28,6 +28,7 @@ public class OnBlockInteract implements Listener {
         shovelArray.add(Material.NETHERITE_SHOVEL);
     }
 
+
     @EventHandler
     public void OnBlockRightClick(PlayerInteractEvent event){
         if(event.getAction() == Action.RIGHT_CLICK_BLOCK && event.getClickedBlock().getType().equals(Material.GRASS_PATH) &&  shovelArray.contains(event.getPlayer().getEquipment().getItemInMainHand().getType())){ //Unpathing
