@@ -6,11 +6,17 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bstats.bukkit.Metrics;
 
+import java.io.File;
+
 public final class Unify extends JavaPlugin {
 
 
     @Override
     public void onEnable() {
+
+        if (!(new File(this.getDataFolder(), "config.yml").exists())) { // Generates the config if missing,
+            this.saveDefaultConfig();
+        }
         if(Bukkit.getServer().getVersion().contains("MC: 1.16")){ OnHoeUse.addNewMaterials();
             OnShovelUse.addNewMaterials();}
 
