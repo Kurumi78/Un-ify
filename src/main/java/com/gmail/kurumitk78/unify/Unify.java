@@ -21,7 +21,7 @@ public final class Unify extends JavaPlugin {
             OnShovelUse.addNewMaterials();}
 
         if(this.getConfig().getBoolean("Unpathing")) {
-            getServer().getPluginManager().registerEvents(new OnHoeUse(), this);
+            getServer().getPluginManager().registerEvents(new OnShovelUse(), this);
         }
 
         if(this.getConfig().getBoolean("Untilling")) {
