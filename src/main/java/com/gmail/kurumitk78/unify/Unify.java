@@ -20,12 +20,13 @@ public final class Unify extends JavaPlugin {
         if(Bukkit.getServer().getVersion().contains("MC: 1.16")){ OnHoeUse.addNewMaterials();
             OnShovelUse.addNewMaterials();}
 
-        if(this.getConfig().getBoolean("Unpathing"))
-        getServer().getPluginManager().registerEvents(new OnHoeUse(), this);
+        if(this.getConfig().getBoolean("Unpathing")) {
+            getServer().getPluginManager().registerEvents(new OnHoeUse(), this);
+        }
 
-        if(this.getConfig().getBoolean("Untilling"))
-        getServer().getPluginManager().registerEvents(new OnHoeUse(), this);
-
+        if(this.getConfig().getBoolean("Untilling")) {
+            getServer().getPluginManager().registerEvents(new OnHoeUse(), this);
+        }
 
         int pluginId = 10628;
         Metrics metrics = new Metrics(this, pluginId);
