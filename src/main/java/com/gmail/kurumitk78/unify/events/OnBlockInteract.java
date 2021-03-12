@@ -29,8 +29,7 @@ public class OnBlockInteract implements Listener {
     }
 
     @EventHandler
-    public void OnBlockRightClick(PlayerInteractEvent   event){
-        //event.getPlayer().sendMessage(ChatColor.GRAY + "[Un-Ify] " + ChatColor.DARK_GRAY + event.getMaterial() + " " + shovelArray.contains(event.getPlayer().getEquipment().getItemInMainHand().getType()));
+    public void OnBlockRightClick(PlayerInteractEvent event){
         if(event.getAction() == Action.RIGHT_CLICK_BLOCK && event.getClickedBlock().getType().equals(Material.GRASS_PATH) &&  shovelArray.contains(event.getPlayer().getEquipment().getItemInMainHand().getType())){ //Unpathing
             Location pathLoc = event.getClickedBlock().getLocation();
             World world = event.getClickedBlock().getWorld();
