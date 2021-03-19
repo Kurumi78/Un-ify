@@ -7,9 +7,13 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bstats.bukkit.Metrics;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 public final class Unify extends JavaPlugin {
 
+    public static List<String> enabledPeople = new ArrayList<>();
 
     @Override
     public void onEnable() {
@@ -27,9 +31,15 @@ public final class Unify extends JavaPlugin {
         if(this.getConfig().getBoolean("Untilling")) {
             getServer().getPluginManager().registerEvents(new OnHoeUse(), this);
         }
+        enabledPeople.addAll((Collection<? extends String>) this.getConfig().getList("EnabledPeople"));
 
         int pluginId = 10628;
         Metrics metrics = new Metrics(this, pluginId);
+
+    }
+
+    public void onDisable(){
+        this.getConfig().set("EnabledPeople", enabledPeople);
 
     }
 
