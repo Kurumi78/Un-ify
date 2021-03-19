@@ -1,8 +1,11 @@
 name: Un-ify
 version: ${project.version}
 main: com.gmail.kurumitk78.unify.Unify
-api-version: 1.15
+api-version: 1.16
 prefix: [ UN ]
 authors: [ Kurumi78 ]
 description: Un-do block specific actions
 website: https://github.com/Kurumi78/Un-ify
+
+commands:
+  untoggle:
