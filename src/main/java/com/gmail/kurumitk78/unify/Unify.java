@@ -33,7 +33,7 @@ public final class Unify extends JavaPlugin {
             getServer().getPluginManager().registerEvents(new OnHoeUse(), this);
         }
 
-        enabledPeople.addAll((Collection<? extends String>) this.getConfig().getList("EnabledUsers")); //Sets up the list of valid people on startup from config
+        enabledPeople = this.getConfig().getStringList("EnabledUsers");    //Sets up the list of valid people on startup from config
 
         this.getCommand("undotoggle").setExecutor(new ToggleStatus()); //Registers the command to toggle if the plugin is active with a said user
 

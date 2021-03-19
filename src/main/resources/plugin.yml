@@ -8,4 +8,4 @@ description: Un-do block specific actions
 website: https://github.com/Kurumi78/Un-ify
 
 commands:
-  untoggle:
+  undotoggle:
