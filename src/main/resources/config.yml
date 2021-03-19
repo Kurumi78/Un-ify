@@ -1,9 +1,15 @@
-Unpathing: true
-Untilling: true
-
-
 ##Thanks for using! Support can be found on the Github and in the Developers Server! Links Below
 
 #Github page -> https://github.com/Kurumi78/Un-ify
 
 #My discord -> https://discord.gg/DBBgUMbk3e
+
+
+Unpathing: true
+Untilling: true
+
+
+EnabledUsers:
+  -test
+  -test2
+  -test3
