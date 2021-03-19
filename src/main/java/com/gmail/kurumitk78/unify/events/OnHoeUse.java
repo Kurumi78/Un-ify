@@ -1,5 +1,6 @@
 package com.gmail.kurumitk78.unify.events;
 
+import com.gmail.kurumitk78.unify.Unify;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
@@ -21,7 +22,8 @@ public class OnHoeUse implements Listener {
     public void OnBlockRightClick(PlayerInteractEvent event){
 
         if(event.getAction() == Action.RIGHT_CLICK_BLOCK &&event.getClickedBlock().getType().equals(Material.FARMLAND)
-                &&  hoeArray.contains(event.getPlayer().getEquipment().getItemInMainHand().getType())){
+                &&  hoeArray.contains(event.getPlayer().getEquipment().getItemInMainHand().getType())   //Untilling
+                && Unify.enabledPeople.contains(event.getPlayer().getName())){
 
             Location tilledLoc = event.getClickedBlock().getLocation();
             World world = event.getClickedBlock().getWorld();

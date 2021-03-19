@@ -1,5 +1,6 @@
 package com.gmail.kurumitk78.unify.events;
 
+import com.gmail.kurumitk78.unify.Unify;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
@@ -23,7 +24,8 @@ public class OnShovelUse implements Listener {
     @EventHandler
     public void OnBlockRightClick(PlayerInteractEvent event) {
         if (event.getAction() == Action.RIGHT_CLICK_BLOCK && event.getClickedBlock().getType().equals(Material.GRASS_PATH)
-                && shovelArray.contains(event.getPlayer().getEquipment().getItemInMainHand().getType())) { //Unpathing
+                && shovelArray.contains(event.getPlayer().getEquipment().getItemInMainHand().getType())   //Unpathing
+               && Unify.enabledPeople.contains(event.getPlayer().getName())){
 
             Location pathLoc = event.getClickedBlock().getLocation();
             World world = event.getClickedBlock().getWorld();
