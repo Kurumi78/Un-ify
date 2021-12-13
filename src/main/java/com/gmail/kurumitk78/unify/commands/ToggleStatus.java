@@ -12,10 +12,10 @@ public class ToggleStatus implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if(!Unify.enabledPeople.contains(sender.getName())){
             Unify.enabledPeople.add(sender.getName());
-            sender.sendMessage("&7[&8Un-ify&7]" + ChatColor.GRAY + " Un-doing enabled!");
+            sender.sendMessage("§7[§8Un-ify§7]" + " §7Un-doing enabled!");
         } else {
             Unify.enabledPeople.remove(sender.getName());
-            sender.sendMessage("&7[&8Un-ify7&]" + ChatColor.GRAY + " Un-doing disabled!");
+            sender.sendMessage("§7[§8Un-ify§8]" + " §7Un-doing disabled!");
         }
         return false;
     }
