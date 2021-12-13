@@ -23,7 +23,7 @@ public final class Unify extends JavaPlugin {
         if (!(new File(this.getDataFolder(), "config.yml").exists())) { // Generates the config if missing,
             this.saveDefaultConfig();
         }
-        if(Bukkit.getServer().getVersion().contains("MC: 1.16")){
+        if(Bukkit.getServer().getVersion().contains("MC: 1.16")|| Bukkit.getServer().getVersion().contains("MC: 1.17") || Bukkit.getServer().getVersion().contains("MC: 1.18")){
             OnHoeUse.addNewMaterials(); //adds netherite tools if 1.16 is detected
             OnShovelUse.addNewMaterials();
             OnAxeUse.addNewMaterials();
@@ -53,7 +53,7 @@ public final class Unify extends JavaPlugin {
 
     public void onDisable(){
         this.getConfig().set("EnabledUsers", enabledPeople); //Saves the list on plugin unload.
-
+        this.saveConfig();
     }
 
 }
