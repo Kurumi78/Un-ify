@@ -15,6 +15,8 @@ import java.util.List;
 
 public final class Unify extends JavaPlugin {
 
+
+    public static boolean modernver = false;
     public static List<String> enabledPeople = new ArrayList<>();
 
     @Override
@@ -23,10 +25,11 @@ public final class Unify extends JavaPlugin {
         if (!(new File(this.getDataFolder(), "config.yml").exists())) { // Generates the config if missing,
             this.saveDefaultConfig();
         }
-        if(Bukkit.getServer().getVersion().contains("MC: 1.16")|| Bukkit.getServer().getVersion().contains("MC: 1.17") || Bukkit.getServer().getVersion().contains("MC: 1.18")){
+        if(Bukkit.getServer().getVersion().contains("MC: 1.16")|| Bukkit.getServer().getVersion().contains("MC: 1.17") || Bukkit.getServer().getVersion().contains("MC: 1.18") || Bukkit.getServer().getVersion().contains("MC: 1.19") || Bukkit.getServer().getVersion().contains("MC: 1.20")){
             OnHoeUse.addNewMaterials(); //adds netherite tools if 1.16 is detected
             OnShovelUse.addNewMaterials();
             OnAxeUse.addNewMaterials();
+            modernver = true;
         }
 
         if(this.getConfig().getBoolean("Unpathing")) { //Enables unpathing if enabled via config

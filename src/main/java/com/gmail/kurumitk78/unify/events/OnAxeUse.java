@@ -48,6 +48,24 @@ public class OnAxeUse implements Listener {
                 case STRIPPED_JUNGLE_LOG:
                     world.getBlockAt(strippedLoc).setType(Material.JUNGLE_LOG);
                     break;
+                case STRIPPED_CRIMSON_STEM:
+                    world.getBlockAt(strippedLoc).setType(Material.CRIMSON_STEM);
+                    break;
+                case STRIPPED_CRIMSON_HYPHAE:
+                    world.getBlockAt(strippedLoc).setType(Material.CRIMSON_HYPHAE);
+                    break;
+                case STRIPPED_WARPED_STEM:
+                    world.getBlockAt(strippedLoc).setType(Material.WARPED_STEM);
+                    break;
+                case STRIPPED_WARPED_HYPHAE:
+                    world.getBlockAt(strippedLoc).setType(Material.WARPED_HYPHAE);
+                    break;
+                case STRIPPED_MANGROVE_LOG:
+                    world.getBlockAt(strippedLoc).setType(Material.MANGROVE_LOG);
+                    break;
+                case STRIPPED_CHERRY_LOG:
+                    world.getBlockAt(strippedLoc).setType(Material.CHERRY_LOG);
+                    break;
                 case STRIPPED_ACACIA_WOOD:
                     world.getBlockAt(strippedLoc).setType(Material.ACACIA_WOOD);
                     break;
@@ -65,6 +83,12 @@ public class OnAxeUse implements Listener {
                     break;
                 case STRIPPED_JUNGLE_WOOD:
                     world.getBlockAt(strippedLoc).setType(Material.JUNGLE_WOOD);
+                    break;
+                case STRIPPED_CHERRY_WOOD:
+                    world.getBlockAt(strippedLoc).setType(Material.CHERRY_WOOD);
+                    break;
+                case STRIPPED_MANGROVE_WOOD:
+                    world.getBlockAt(strippedLoc).setType(Material.MANGROVE_WOOD);
                     break;
             }
 

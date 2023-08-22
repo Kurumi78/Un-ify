@@ -6,7 +6,7 @@
 
     <groupId>com.gmail.kurumitk78</groupId>
     <artifactId>Unify</artifactId>
-    <version>3.0-BETA</version>
+    <version>4.0</version>
     <packaging>jar</packaging>
 
     <name>Un-ify</name>
@@ -72,7 +72,7 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.16.5-R0.1-SNAPSHOT</version>
+            <version>1.20.1-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
