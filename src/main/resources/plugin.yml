@@ -2,7 +2,7 @@ name: Un-ify
 version: ${project.version}
 main: com.gmail.kurumitk78.unify.Unify
 api-version: 1.13
-prefix: [ UN ]
+prefix: UN
 authors: [ Kurumi78 ]
 description: Un-do block specific actions
 website: https://github.com/Kurumi78/Un-ify
