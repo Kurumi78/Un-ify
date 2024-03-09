@@ -22,6 +22,8 @@ public class OnShovelUse implements Listener {
     public static List<Material> shovelArray = new ArrayList<>(Arrays.asList(Material.IRON_SHOVEL,
             Material.DIAMOND_SHOVEL, Material.STONE_SHOVEL, Material.WOODEN_SHOVEL, Material.GOLDEN_SHOVEL));
 
+    public static int durabilityUse;
+
 
     @EventHandler
     public void OnBlockRightClick(PlayerInteractEvent event) {
@@ -34,7 +36,7 @@ public class OnShovelUse implements Listener {
                 undoPathing(event.getClickedBlock().getLocation(), event.getClickedBlock().getWorld());
                 ItemStack shovel = event.getPlayer().getEquipment().getItemInMainHand();
                 Damageable shovelMeta = (Damageable) shovel.getItemMeta();
-                shovelMeta.setDamage(shovelMeta.getDamage() + 1);
+                shovelMeta.setDamage(shovelMeta.getDamage() + durabilityUse);
                 shovel.setItemMeta(shovelMeta);
 
 

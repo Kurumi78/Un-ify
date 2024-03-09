@@ -6,8 +6,14 @@
 
 
 Unpathing: true
+UnpathingDurability: 1
+
 Untilling: true
+UntillingDurability: 1
+
 Unstripping: true
+UnstrippingDurability: 1
+
 
 
 EnabledUsers:

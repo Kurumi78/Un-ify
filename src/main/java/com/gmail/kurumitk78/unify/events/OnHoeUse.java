@@ -18,6 +18,7 @@ import java.util.List;
 
 public class OnHoeUse implements Listener {
     public static List<Material> hoeArray = new ArrayList<>(Arrays.asList(Material.IRON_HOE, Material.DIAMOND_HOE, Material.STONE_HOE, Material.WOODEN_HOE, Material.GOLDEN_HOE));
+    public static int durabilityUse;
     @EventHandler
     public void OnBlockRightClick(PlayerInteractEvent event){
 
@@ -30,7 +31,7 @@ public class OnHoeUse implements Listener {
             world.getBlockAt(tilledLoc).setType(Material.DIRT);
             ItemStack hoe = event.getPlayer().getEquipment().getItemInMainHand();
             Damageable hoeMeta = (Damageable) hoe.getItemMeta();
-            hoeMeta.setDamage(hoeMeta.getDamage()+1);
+            hoeMeta.setDamage(hoeMeta.getDamage()+ durabilityUse );
             hoe.setItemMeta((ItemMeta)hoeMeta);
 
         }

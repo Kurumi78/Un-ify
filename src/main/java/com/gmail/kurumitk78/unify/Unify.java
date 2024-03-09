@@ -34,14 +34,17 @@ public final class Unify extends JavaPlugin {
 
         if(this.getConfig().getBoolean("Unpathing")) { //Enables unpathing if enabled via config
             getServer().getPluginManager().registerEvents(new OnShovelUse(), this);
+            OnShovelUse.durabilityUse = this.getConfig().getInt("UnpathingDurability");
         }
 
         if(this.getConfig().getBoolean("Untilling")) { //Enables untilling if enabled via config
             getServer().getPluginManager().registerEvents(new OnHoeUse(), this);
+            OnHoeUse.durabilityUse = this.getConfig().getInt("UntillingDurability");
         }
 
         if(this.getConfig().getBoolean("Unstripping")) { //Enables untilling if enabled via config
             getServer().getPluginManager().registerEvents(new OnAxeUse(), this);
+            OnAxeUse.durabilityUse = this.getConfig().getInt("UnstrippingDurability");
         }
 
         enabledPeople = this.getConfig().getStringList("EnabledUsers");    //Sets up the list of valid people on startup from config

@@ -18,6 +18,7 @@ import java.util.List;
 
 public class OnAxeUse implements Listener {
     public static List<Material> axeArray = new ArrayList<>(Arrays.asList(Material.IRON_AXE, Material.DIAMOND_AXE, Material.STONE_AXE, Material.WOODEN_AXE, Material.GOLDEN_AXE));
+    public static int durabilityUse;
 
     @EventHandler
     public void OnBlockRightClick(PlayerInteractEvent event) {
@@ -94,7 +95,7 @@ public class OnAxeUse implements Listener {
 
                 ItemStack axe = event.getPlayer().getEquipment().getItemInMainHand();
                 Damageable axeMeta = (Damageable) axe.getItemMeta();
-                axeMeta.setDamage(axeMeta.getDamage() + 1);
+                axeMeta.setDamage(axeMeta.getDamage() + durabilityUse);
                 axe.setItemMeta((ItemMeta) axeMeta);
 
             }
