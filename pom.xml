@@ -6,7 +6,7 @@
 
     <groupId>com.gmail.kurumitk78</groupId>
     <artifactId>Unify</artifactId>
-    <version>5.0-BETA</version>
+    <version>5.0</version>
     <packaging>jar</packaging>
 
     <name>Un-ify</name>
