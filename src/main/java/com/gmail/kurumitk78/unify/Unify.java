@@ -5,13 +5,11 @@ import com.gmail.kurumitk78.unify.events.OnAxeUse;
 import com.gmail.kurumitk78.unify.events.OnHoeUse;
 import com.gmail.kurumitk78.unify.events.OnShovelUse;
 import org.bukkit.Bukkit;
-import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bstats.bukkit.Metrics;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 public final class Unify extends JavaPlugin {
