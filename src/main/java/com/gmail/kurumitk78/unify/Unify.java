@@ -5,6 +5,7 @@ import com.gmail.kurumitk78.unify.events.OnAxeUse;
 import com.gmail.kurumitk78.unify.events.OnHoeUse;
 import com.gmail.kurumitk78.unify.events.OnShovelUse;
 import org.bukkit.Bukkit;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bstats.bukkit.Metrics;
 
@@ -19,8 +20,12 @@ public final class Unify extends JavaPlugin {
     public static boolean modernver = false;
     public static List<String> enabledPeople = new ArrayList<>();
 
+
+
+
     @Override
     public void onEnable() {
+
 
         if (!(new File(this.getDataFolder(), "config.yml").exists())) { // Generates the config if missing,
             this.saveDefaultConfig();
@@ -31,7 +36,6 @@ public final class Unify extends JavaPlugin {
             OnAxeUse.addNewMaterials();
             modernver = true;
         }
-
         if(this.getConfig().getBoolean("Unpathing")) { //Enables unpathing if enabled via config
             getServer().getPluginManager().registerEvents(new OnShovelUse(), this);
             OnShovelUse.durabilityUse = this.getConfig().getInt("UnpathingDurability");
