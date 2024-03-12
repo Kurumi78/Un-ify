@@ -138,15 +138,13 @@ public class OnAxeUse implements Listener {
                 if (doStuff) {
                     ItemStack axe = player.getInventory().getItemInMainHand();
 
-                    if (axe.hasItemMeta()) {
-                        Damageable axeMeta = (Damageable) axe.getItemMeta();
+                    Damageable axeMeta = (Damageable) axe.getItemMeta();
 
-                        if (axeMeta != null) {
-                            axeMeta.setDamage(axeMeta.getDamage() + durabilityUse);
-                        }
-
-                        axe.setItemMeta(axeMeta);
+                    if (axeMeta != null) {
+                        axeMeta.setDamage(axeMeta.getDamage() + durabilityUse);
                     }
+
+                    axe.setItemMeta(axeMeta);
                 }
 
             }

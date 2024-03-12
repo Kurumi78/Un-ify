@@ -50,15 +50,13 @@ public class OnHoeUse implements Listener {
                 World world = block.getWorld();
                 world.getBlockAt(tilledLoc).setType(Material.DIRT);
 
-                if (itemStack.hasItemMeta()) {
-                    Damageable hoeMeta = (Damageable) itemStack.getItemMeta();
+                Damageable hoeMeta = (Damageable) itemStack.getItemMeta();
 
-                    if (hoeMeta != null) {
-                        hoeMeta.setDamage(hoeMeta.getDamage() + durabilityUse);
-                    }
-
-                    itemStack.setItemMeta(hoeMeta);
+                if (hoeMeta != null) {
+                    hoeMeta.setDamage(hoeMeta.getDamage() + durabilityUse);
                 }
+
+                itemStack.setItemMeta(hoeMeta);
             }
         }.runTaskLater(this.plugin, 1);
     }
