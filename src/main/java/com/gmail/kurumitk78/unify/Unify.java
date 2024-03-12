@@ -4,64 +4,75 @@ import com.gmail.kurumitk78.unify.commands.ToggleStatus;
 import com.gmail.kurumitk78.unify.events.OnAxeUse;
 import com.gmail.kurumitk78.unify.events.OnHoeUse;
 import com.gmail.kurumitk78.unify.events.OnShovelUse;
-import org.bukkit.Bukkit;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.PluginCommand;
+import org.bukkit.command.TabCompleter;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bstats.bukkit.Metrics;
-
-import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.UUID;
 
 public final class Unify extends JavaPlugin {
 
-
-    public static boolean modernver = false;
-    public static List<String> enabledPeople = new ArrayList<>();
-
-
-
+    private final List<UUID> enabledPeople = new ArrayList<>();
 
     @Override
     public void onEnable() {
+        this.saveDefaultConfig();
 
+        FileConfiguration configuration = getConfig();
 
-        if (!(new File(this.getDataFolder(), "config.yml").exists())) { // Generates the config if missing,
-            this.saveDefaultConfig();
-        }
-        if(Bukkit.getServer().getVersion().contains("MC: 1.16")|| Bukkit.getServer().getVersion().contains("MC: 1.17") || Bukkit.getServer().getVersion().contains("MC: 1.18") || Bukkit.getServer().getVersion().contains("MC: 1.19") || Bukkit.getServer().getVersion().contains("MC: 1.20")){
-            OnHoeUse.addNewMaterials(); //adds netherite tools if 1.16 is detected
-            OnShovelUse.addNewMaterials();
-            OnAxeUse.addNewMaterials();
-            modernver = true;
-        }
-        if(this.getConfig().getBoolean("Unpathing")) { //Enables unpathing if enabled via config
+        if (configuration.getBoolean("Unpathing")) { // Enables unpathing if enabled via config
             getServer().getPluginManager().registerEvents(new OnShovelUse(), this);
             OnShovelUse.durabilityUse = this.getConfig().getInt("UnpathingDurability");
         }
 
-        if(this.getConfig().getBoolean("Untilling")) { //Enables untilling if enabled via config
+        if (configuration.getBoolean("Untilling")) { // Enables untilling if enabled via config
             getServer().getPluginManager().registerEvents(new OnHoeUse(), this);
+
             OnHoeUse.durabilityUse = this.getConfig().getInt("UntillingDurability");
         }
 
-        if(this.getConfig().getBoolean("Unstripping")) { //Enables untilling if enabled via config
+        if (configuration.getBoolean("Unstripping")) { // Enables untilling if enabled via config
             getServer().getPluginManager().registerEvents(new OnAxeUse(), this);
+
             OnAxeUse.durabilityUse = this.getConfig().getInt("UnstrippingDurability");
         }
 
-        enabledPeople = this.getConfig().getStringList("EnabledUsers");    //Sets up the list of valid people on startup from config
+        configuration.getStringList("EnabledUsers").forEach(line -> this.enabledPeople.add(UUID.fromString(line)));
 
-        this.getCommand("undotoggle").setExecutor(new ToggleStatus()); //Registers the command to toggle if the plugin is active with a said user
+        registerCommand(getCommand("undotoggle"), null, new ToggleStatus());
 
-
-        int pluginId = 10628; //BStats metrics
-        Metrics metrics = new Metrics(this, pluginId);
-
+        new Metrics(this, 10628);
     }
 
+    @Override
     public void onDisable(){
-        this.getConfig().set("EnabledUsers", enabledPeople); //Saves the list on plugin unload.
-        this.saveConfig();
+        getConfig().set("EnabledUsers", this.enabledPeople); // Saves the list on plugin unload.
+
+        saveConfig();
     }
 
+    private void registerCommand(PluginCommand pluginCommand, TabCompleter tabCompleter, CommandExecutor commandExecutor) {
+        if (pluginCommand != null) {
+            pluginCommand.setExecutor(commandExecutor);
+
+            if (tabCompleter != null) pluginCommand.setTabCompleter(tabCompleter);
+        }
+    }
+
+    public void addPerson(UUID uuid) {
+        this.enabledPeople.add(uuid);
+    }
+
+    public void removePerson(UUID uuid) {
+        this.enabledPeople.remove(uuid);
+    }
+
+    public List<UUID> getEnabledPeople() {
+        return Collections.unmodifiableList(this.enabledPeople);
+    }
 }
