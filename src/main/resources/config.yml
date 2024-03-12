@@ -1,23 +1,20 @@
-##Thanks for using Unify! Support can be found on the Github and in the Developers Server! Links Below
+## Thanks for using Unify! Support can be found on the Github and in the Developers Server! Links Below
 
-#Github page -> https://github.com/Kurumi78/Un-ify
+# Github page -> https://github.com/Kurumi78/Un-ify
 
-#My discord -> https://discord.gg/DBBgUMbk3e
+# My discord -> https://discord.gg/DBBgUMbk3e
 
-#Enables or Disables Unpathing, and the durability use.
+# Enables or Disables Unpathing, and the durability use.
 Unpathing: true
 UnpathingDurability: 1
 
-#Enables or Disables Untilling, and the durability use.
+# Enables or Disables Untilling, and the durability use.
 Untilling: true
 UntillingDurability: 1
 
-#Enables or Disables Unstripping, and the durability use.
+# Enables or Disables Unstripping, and the durability use.
 Unstripping: true
 UnstrippingDurability: 1
 
-#This is a list of all users who have the feature enabled. I really should make a dedicated file for this.
-EnabledUsers:
-  -test
-  -test2
-  -test3
+# This is a list of all uuids who have the feature enabled. I really should make a dedicated file for this.
+EnabledUsers: []
